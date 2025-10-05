@@ -9,8 +9,8 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 const config: Config = {
   title: "Panduan ChatbotNesia",
   tagline: "Buat bisnis kamu lebih sat set sat set dengan chatbotnesia",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://iyote-indonesia.github.io",
+  baseUrl: "/chatbotnesia-doc",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
