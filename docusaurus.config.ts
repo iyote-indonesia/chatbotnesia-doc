@@ -7,8 +7,8 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Panduan ChatbotNesia",
+  tagline: "Buat bisnis kamu lebih sat set sat set dengan chatbotnesia",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -17,8 +17,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "iyote-indonesia", // Usually your GitHub org/user name.
+  projectName: "chatbotnesia-doc", // Usually your repo name.
 
   presets: [
     [
@@ -32,15 +32,15 @@ const config: Config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          onInlineAuthors: "ignore",
-          onUntruncatedBlogPosts: "ignore",
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   editUrl:
+        //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        //   onInlineAuthors: "ignore",
+        //   onUntruncatedBlogPosts: "ignore",
+        // },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -56,7 +56,7 @@ const config: Config = {
         },
       },
       navbar: {
-        title: "My Site",
+        title: "ChatbotNesia Panduan",
         logo: {
           alt: "My Site Logo",
           src: "img/logo.svg",
@@ -66,16 +66,15 @@ const config: Config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Panduan",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
-            label: "Petstore API",
+            label: "API Reference (Developer)",
             position: "left",
-            to: "/docs/category/petstore-api",
+            to: "/docs/category/chatbotnesia-api",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/iyote-indonesia/chatbotnesia-doc",
             label: "GitHub",
             position: "right",
           },
@@ -83,48 +82,7 @@ const config: Config = {
       },
       footer: {
         style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ChatbotNesia.id. Part of PT. MEROKET BERSAMA IYOTE.`,
       },
       prism: {
         additionalLanguages: [
