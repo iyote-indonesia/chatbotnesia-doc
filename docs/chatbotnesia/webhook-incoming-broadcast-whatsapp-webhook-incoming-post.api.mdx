@@ -1,0 +1,81 @@
+---
+id: webhook-incoming-broadcast-whatsapp-webhook-incoming-post
+title: "WhatsApp Incoming Message Webhook"
+description: "Webhook yang dikirim ke client ketika ada pesan masuk baru dari WhatsApp."
+sidebar_label: "WhatsApp Incoming Message Webhook"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV9tu4zYQ/RVintpAiR1jF9vqqUmzQANsm2DjNECzgTGWJjLXEsklqWQNQ/9eDClZsp1bgb61fjFNzpVz5gy9Bo+Fg/QW5lZjnqHzo8cFeofGwF0CObnMSuOlVpDCDc0XWi/FClUhcrmUVlZiSSIrJSkvluTlEgXmKAw5VKJCVy/FHG0tcrRS3LDlE2OOvqgvSrSfg4Mz9LhlMz046M8PRamLmcxTcX7W2u3sDIUcqZxsKv7QlbbCkCrY0lCiIuewoFRcBiNDh0+IzfzKUCqm0lDr9QdP330iZIUFJQLrXOpE5DqrK1L+x6GJ2pGddXaejDwRtfL1UtQmR0/CefS1izJ7htB7zBbsJBXXnz+JinKJz4a/ozJM42XFzBJ6ymfoU3GDS19vLhFVjAwS0IYsMhrOc0jhMeJhJlWmK6mK2QZEsw5Esz0Zo52HBCx9q8n5U52vIF1DppUn5XmJxpQyC15GXx0Dbw0uW1CFvDKWY/CSHP+K0OAV5wkpSOWpIAsJeOlL3vmkC3GeQ5NAhMhA2HkrVTGQvYoSTQJt9V4S/r0V6aVnUfRVFTHl8yaBnWKF7NXq4h7S210jTbLZUXVZQnPXm712ZMVJb2bf8iayf8H8JvoeMU/lfK9txSfACD/0sqLBRfwaVcWJh6ZJOl09/0pZBw5pKWdiaku8KV9fm5173wpoEH7Xc+ctAlsWg4Y99568rSlsOKOVi/CajMf89TQLGqszco5y4eqMV/d1Wa44jDdiuUmAvmNlylCZ1kgbSAju3WSy7/5PLGUeLIqP1mr7DxzuNE9OHmXJK+mpck91V7Z1+gbwdP3X3PVlRWtxtdWRMcDQOa54Y4+91lvhMlpsvgqpDKLrVm6Alv564+0+n8ZZvL6nnHUiv02nl3sGY20r8gvNJNryoUG/gBRG+3N41FLoqKPQ0Av2gawLtahtCSksvDcuHY3QyKNsgX6uvSIn8Sj0zjaELq3O6yxAKBoK7e4oq630qyuGSwTAxUntF5NLdO5R2/yU0G7xp0Y+5l4v9WPETysaYadNMMMXpJekrkOgaOSI9UalLqSKXcj3tGedM+JUQziQwjwKsDwj+3M/QD72XdQNhHFP9z1UNqS+tzXbRdUeMz97tKc6pEWYjCfvDscfDic/T4/fp++P08lPR+MPx38xrqS61yHfjhRj2cTJubiKZdkt3ClmS1J5WzVxr60YKA16vyUFzAIpKKwiYB+o5P4WU8KKM9lCzg5qRpAAVYEgIO80f9mFVpMAAzGGd3w0PhrzFmO6QjXw3ZGw6FhYdLOwo+OdXAdPgv/fnf/5d2fbY3wTI1OiDLMjwHfdMufgHwwksPkPk3SPVOB+a/nzLoEFs256C+v1HB1d27JpePtbTXYF6e1dAg9oJc65MW95li0IA5vcrmFJK+7WCM/DaXx7PGBZhymxO4B5OEaNkywj41+UvRsMhsuLqykkMG9fyJXOWcfiI08zfIQUwoOctQP3hr01lKiKOrJctMmfvwHj2Lzu
+sidebar_class_name: "post api-method"
+info_path: docs/chatbotnesia/chatbot-ai-server
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"WhatsApp Incoming Message Webhook"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/broadcast/whatsapp/webhook/incoming"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Webhook yang dikirim ke client ketika ada pesan masuk baru dari WhatsApp.
+
+        **Data yang dikirim:**
+        - log_id: ID pesan WhatsApp
+        - sender: Nomor pengirim
+        - message: Pesan yang dikirim
+        - message_type: Tipe pesan (text, image, audio, document)
+        - user_message_id: ID pesan WhatsApp, untuk update status pesan
+        - user_attachment: URL media yang dikirim
+        - user_attachment_type: Tipe media yang dikirim
+        - created_at: Waktu pengiriman pesan
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"log_id":{"type":"integer","title":"Log Id"},"sender":{"type":"string","title":"Sender"},"message":{"type":"string","title":"Message"},"message_type":{"type":"string","title":"Message Type"},"user_attachment":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"User Attachment"},"user_attachment_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"User Attachment Type"},"created_at":{"type":"string","format":"date-time","title":"Created At"}},"type":"object","required":["log_id","sender","message","message_type","created_at"],"title":"WhatsAppIncomingWebhook"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Webhook processed successfully","content":{"application/json":{"schema":{},"example":{"success":true}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-device-broadcast-whatsapp-device-client-key-get
+title: "Get Device"
+description: "Get Device"
+sidebar_label: "Get Device"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVlFv2zYQ/ivEvWQDCCsN9qSnpUuRFtvQoEn3YhgCTZ4lNjSpkCdnhqH/Ppwo27LddECfLJJ3x+++++7oHZCqE5RzWMagjFaJitdGUVJtCwsJocWoyAb/yUAJNVJlcGM1Vgfzam++P6m0s+ipesZtVdVIIKFVUa2RMPJNO/BqjVDC0Q4kWA8ltIoakBDxpbMRDZQUO5SQdINrBeUOaNuyZ6JofQ0SyJLjjT+GUOJP3ELfLzhCaoNPmNjp5vqafwwmHW3LyUAJj53WmNKqc+LLaAwSdPCEnthcta2zesi9+JbYZzcB0kZmhmy+IZGiLv0I4GO2kOcohm0RVoIaFJw3JpICZ/VMXKUM8UqEKK5Wyjo0V9BLMIoGDMoYy3GUe5igyZSNOMLyG2qa4Lhj33MUd0PhBMeVwnrtOmN9Lcb6WCNF2wSPle/WS4xStDFsrOGvYwmlcFajT5gXPhAmBpuQyPo6/Szgx73/G6D38afAnfXPVdLKVy9RildcNiE8V110x8UBVt9f3n3U33xf2pH1ST6LI8Z7pIzmoKS+57i/3dxcCu8f5awZZCU+xBjiz6vOICnr+MsSrtOlgQv65FT57efV0IGnMu3lYcd6whoj9IsjLypGtZ2U5K+QAXJ516n+kez/xpRUjXAI9rbpQIZ44tP/qwnnla8e7Sa1ONKb2X07jbtM3/cu25t8fHp6uAiYa3ta1HskkSXAwJCaMI7LYfhRAyUUlwO2yBOz2B3bqB8kFjf7UdlFByU0RG0qi0K1dqYbRctAHpNVM2su+uIhBtPpQV85EPBATKi7aGn7yFrK6vh821Fz86BSeg3RvEcVMU4KFBQfg4SVC69ZXKNp1mRohzDMXnhG/3UAqlpbsF/hQm09DEwxiRfROSMYJzuvl9mA7a1fhcFyP9tzwuL2k3jMCZ2n/F7pZ/RmzFesQhQTp0lLjb2m9NBr4zN0hxt03DbiCdUa5BnnZ3wXIAHXQ9+B2Xv+fl6UXgKXMMN7N7ueXfNWGxKtlZ/cfaKbk6QOTBH+S0XrlB36bcC2GzU1ebRBwuHZ5khjyHLyxi4kNCERu+12S5Xwa3R9z9svHcYtlPOFhI2KVi2Z9/kOjE38baBcKZfwAuFhbsEvX8b2/FWA/D7yfRd67sGNch2vQAJDO/kvMIyeBpVhwcx3o8Gt1tjSxPViUrLMD613/+EJ+v4/DbMUjg==
+sidebar_class_name: "get api-method"
+info_path: docs/chatbotnesia/chatbot-ai-server
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Device"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/broadcast/whatsapp/device/{client_key}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get Device
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client_key","in":"path","required":true,"schema":{"type":"string","title":"Client Key"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"status":{"type":"string","title":"Status","description":"Status of the request, e.g. 'success' or 'failed'"},"data":{"additionalProperties":true,"type":"object","title":"Data","description":"Device data, including client_id, phone_number, provider, client_key, license_key, notes"},"settings":{"additionalProperties":true,"type":"object","title":"Settings","description":"Device settings, including link_scan_qr, webhook_url, webhook_settings"}},"type":"object","required":["status","data","settings"],"title":"GetDeviceResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

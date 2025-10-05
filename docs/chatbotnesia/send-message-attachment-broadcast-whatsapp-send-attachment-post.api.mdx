@@ -1,0 +1,71 @@
+---
+id: send-message-attachment-broadcast-whatsapp-send-attachment-post
+title: "Send Message Attachment"
+description: "Send Message Attachment"
+sidebar_label: "Send Message Attachment"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVu9rGzkQ/VfEfGo5Jc6Fcgf+dE5TSOByCbFzEIwxsnbsVb0rbSVtXGP2fy8j7S+vmzT0k9fSaDR6782TDuDFxsF4DitrRCKF86NdKrwTRQELDqZAK7wy+jaBMTjUyTJH58QGl8J7IdMctV+2a5fN2mUI7YUUxnngYPFbic5fmWQP4wNIoz1qT5+iKDIlw16jr85oGnMyxVzQV2GpEq/Qhdg2L/3z+wKpOG+V3gAHr3xGA5MuikOCTlpVUPqjKeYNo1rZB5VvOEuM5EyUiTKcvagEzUfOpNBshay0GSvKVaYkM5athMO/PkHFocbjrUru6pBhGfV4UwNlK1KjcanLfIX2rZQPFMf+i3HDvHEyJmkPmLeb0T4EbVJmSCQFSPX+fg3j+XDHircjuswyqBZdDdMmB5ucQtxNepXjsArOfIpsbWwuPFOOPT8/P5/d3Z1dX7Obm/Hd3Xg6ZR+eZp//+PsjVBVvSjCrrygbHSmLCSlX9HnOW6iPkOxXjTrp+H+MgoSKdumyeltiGHCF0S6q7vLign4GxyylROfWZcYe62Dgv6tr54Uv3Vu0T2PECdhhmJl1gLXFuFauQ+05WwuVYcJJvAXqJJLb4LVUyTsEzG6TVzV8e32yfemQ+VQ5Il+mKLdh2v2sVqY02+EqNWbLvBVyG8r7BfGuAaN3iDeIrtmpAtWfLi9PyfxfZCoJVLEv1hr7+0wm6IXK6Et5zN1pQGbk0ew7+k9pjxu0UC06XIS1Yt8j6l8TCwzUus17TKlN9npoAIPNaPZXnNC54tZ1XI+QDt6I7uvHuI7w/WyzJuRmNns4SRi5dShLq/w+wElxVygs2el8QfY1aB1ypUbEk2Mr8amha6++uwrhUxjD6PSmHJG1nR35kEP7gtaFEkqbwRhS7ws3Ho1Eoc5lKvzKeI1OiXN12lQP1iSlDEKMiYLvNucia82jjO4npU8vH4RzO2OT5pwtk0bQNHBYZ2YXVViHRvGaIqQhmM0W9VMoVBRqROtGmdkoHZ2xj2KbnU4E8SrJ6f8qBlA89cdjd9d/+S7yIsPh3d0prb1Eu6Hjm7AbP765uj4BpdcmVFcr5HMEmU1u2TSCOIT5Ssgt0R8xpuuI9Rb1+r02AiGDEWiRR5G+YEY9zWYocuADngccj4AD5sEUIGlW/jMUQsWBZBPL+/P84vwiPAqM87nQvb1fV+3RCVuqPH73oyITKjhDKPRQC7r39AMO7eOPw1DUCw4pdcJ4DocDvX+ebFZVNPytREvdtuDwIqwSK8J/TjaVokhC5x1gi3siJfrpWTATCs/KYABDbyXfiysmUmLh34xd9Jr14X46Aw6r+oWZm4TWWLEjoxI7GAPQs5ZWh4YIYwfIhN6UUYExJ6mYuqAHYq1v3nz03Frofa/CwyFGzKipqgp4fZTQZOTfVfUDZx77Bw==
+sidebar_class_name: "post api-method"
+info_path: docs/chatbotnesia/chatbot-ai-server
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send Message Attachment"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/broadcast/whatsapp/send-attachment"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send Message Attachment
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"attachment":{"type":"string","title":"Attachment","description":"Attachment to send (img, doc, audio, video), can be url public or base64"},"message":{"type":"string","title":"Message","description":"Message to send"},"phone_number":{"type":"string","title":"Phone Number","description":"Phone number to send message to"},"scheduled_at":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Scheduled At","description":"Scheduled time to send message, the format is YYYY-MM-DD HH:MM:SS (UTC+7)"}},"type":"object","required":["attachment","message","phone_number"],"title":"SendAttachmentRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"status":{"type":"string","title":"Status","description":"Status of the message, can be sent, failed, or pending"},"message_id":{"type":"string","title":"Message Id","description":"Message ID of the message, use this to check the status of the message in webhook tracking"}},"type":"object","required":["status","message_id"],"title":"SendAttachmentResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

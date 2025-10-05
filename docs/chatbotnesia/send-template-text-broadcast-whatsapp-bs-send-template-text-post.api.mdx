@@ -1,0 +1,71 @@
+---
+id: send-template-text-broadcast-whatsapp-bs-send-template-text-post
+title: "Send Template Text"
+description: "Send Template Text"
+sidebar_label: "Send Template Text"
+hide_title: true
+hide_table_of_contents: true
+api: eJylV9tu4zgM/RWDz27TKfbJT9u5ABtgui3azuxDEBiMzSSa2pJGkpsGgf99Qcm3XOp0u31IHYc6pMhzKGoHDlcWkhksjMI8Q+smmzU6i1pfLCorJFkL8xiUJoNOKDnNIQFLMk8dlbpAR6mjV5d269N2fbqw6QlDrayDGAz9rsi6zyrfQrKDTElH0vEjal2IzDub/LJK8jubralEftKGQ3GCLH9zyn9uNXFUzgi5ghiccAW/eFJQx9C5l1jSqHljGP3NhsOVBcpVhav3rf7eGseQ0xKrwkECImfAFzQCF0WIHeX2bgnJbAfCUWlPbM57OvZIsiq5ZGvCnAzEsOAkxrBUyoXvlXNK2u6JC9iFyWDDyPziOgZbLdLWYx/avu867t7IqiigHgA/VovIg9cxCJnT60kgIR2tyIwiTf3qOgaNBktyZP5fvva2PoTtGPGR/d63KAO6vLpxhrw6qNkwGKjFL8paLQhDORfVhfp4rFPeblVOBfQgaAxu3xeoPem8NfuiSq0kScdh/ncvPztqn92hgkNRDmlEMr8la3FFraI4oIfQLqBm9B7NmYr8C6uVtIEG11dX/C8nmxmhuY14dmYZWbusiuihMYb4o12HjFFmUOmFUgWhHCTzm7cYyGyJheVI/dI0U/lp3r1HHh47+sIQHWAZMvZRLgfIJu2MGvCEXKXaqLzKRnl92xpH941xHVKLmfP5ekOvQupqFHjqDeoYNpiKfMzyH4ym+VnmBYct3HzIfR/sadYfmdk+QzS6v9GQp/kAJrUOXWXPZ5mix2B5dq85HKHPj9DO7fi23eU5d8eEGVBgkK1xpXfSrL3O/7i+PlbyTyxE7nUatSr7oIxzciiKkQIWKtv79R3S6gQ8fzup31UI0Nffrt5R9L5Cb5sGDYcz7kyxeF/BdWO318fb9Ibsvr2NryF9Y2fKX09P90eAobYH7ZlkHnUTlD8omTRurXjcbEZGjW4NCUxOjap2wqPmRXusXLgAYcm8+PFhtoPKFJDA2jltk8kEtbjM1ugWykmyAi+9YPajatoZUy0A+aZpKauMcNtHplUgyt1N5dbX92jtRpn8M6Gh4fmgkH/mCa1Qm8CzxjTQU2kPw4lUzyR/+EBRiwmvmxRqJWQ4+DifR+i8I96qD4dPo2DA9qyAh37Q/vaKpS6oHZwHHNofkU/80E/AobMMJtnZ4Bz0c2g/SfZAzUR4tT/UHSnpeDgbxsLjVae5uZeYkMtwBWhbdChpdDONHkPJDov6GbNnZluoaLTks7RfNOgffQdjB000X+mFCu4R0RNhCfEBqw4YNeFpvfRNBvJ25Z+HtOOLARkbwvt0eXV55adUZV2JcuD7pEj2Ntelk3M10QUK32R8jLtGP4OrHh+FvYK8XI40NI9hzfJLZrDbLdDSD1PUNb/+XZHZQjKb92zgb3XcXky4vM+0bQ5Oku6iuXy8YFH5jnLYrLmRhhU3WUbajdrOBx3i/u7xqb0IJTso/XwFBjfc+XADCQDfYXm1159/t4MBqwMm//0LuCY2DA==
+sidebar_class_name: "post api-method"
+info_path: docs/chatbotnesia/chatbot-ai-server
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send Template Text"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/broadcast/whatsapp-bs/send-template-text"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send Template Text
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"to":{"type":"string","title":"To"},"template_name":{"type":"string","title":"Template Name"},"template_language":{"type":"string","title":"Template Language","default":"id"},"variables":{"anyOf":[{"items":{"properties":{"type":{"type":"string","enum":["header","body","footer","buttons","button"],"title":"Type","default":"body"},"sub_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Type"},"index":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Index"},"parameters":{"anyOf":[{"items":{"properties":{"type":{"type":"string","title":"Type"},"parameter_name":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Parameter Name"},"text":{"type":"string","title":"Text"}},"type":"object","required":["type","text"],"title":"ParameterModel"},"type":"array"},{"type":"null"}],"title":"Parameters"}},"type":"object","title":"ComponentTextModel"},"type":"array"},{"type":"null"}],"title":"Variables"}},"type":"object","required":["to","template_name"],"title":"SendMessageTemplateTextRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"error":{"type":"boolean","title":"Error","default":false},"error_code":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Error Code"},"error_message":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Error Message"},"messaging_product":{"type":"string","title":"Messaging Product"},"contacts":{"items":{"properties":{"input":{"type":"string","title":"Input"},"wa_id":{"type":"string","title":"Wa Id"}},"type":"object","required":["input","wa_id"],"title":"ContactModel"},"type":"array","title":"Contacts"},"messages":{"items":{"properties":{"id":{"type":"string","title":"Id"},"message_status":{"type":"string","title":"Message Status"}},"type":"object","required":["id","message_status"],"title":"MessageModel"},"type":"array","title":"Messages"}},"type":"object","required":["messaging_product","contacts","messages"],"title":"SendMessageTemplateResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
