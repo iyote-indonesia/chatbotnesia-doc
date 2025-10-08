@@ -11,6 +11,8 @@ const config: Config = {
   tagline: "Buat bisnis kamu lebih sat set sat set dengan chatbotnesia",
   url: "https://iyote-indonesia.github.io",
   baseUrl: "/chatbotnesia-doc",
+  // url: "http://localhost:3000",
+  // baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
