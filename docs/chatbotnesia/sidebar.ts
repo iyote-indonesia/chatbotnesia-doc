@@ -8,8 +8,14 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "broadcast/whatsapp",
+      label: "Platform: Whatsapp",
       items: [
+        {
+          type: "doc",
+          id: "chatbotnesia/get-device-broadcast-whatsapp-device-client-key-get",
+          label: "Get Device",
+          className: "api-method get",
+        },
         {
           type: "doc",
           id: "chatbotnesia/get-webhook-logs-broadcast-whatsapp-webhook-logs-get",
@@ -36,12 +42,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "chatbotnesia/get-device-broadcast-whatsapp-device-client-key-get",
-          label: "Get Device",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
           id: "chatbotnesia/webhook-tracking-broadcast-whatsapp-webhook-tracking-post",
           label: "WhatsApp Message Tracking Webhook",
           className: "api-method post",
@@ -56,7 +56,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "broadcast/whatsapp-business",
+      label: "Platform: Whatsapp Business API",
       items: [
         {
           type: "doc",
@@ -70,11 +70,17 @@ const sidebar: SidebarsConfig = {
           label: "Send Message Template Media",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "chatbotnesia/webhook-setting-update-platform-whatsapp-bs-setting-webhook-put",
+          label: "Webhook Setting Update",
+          className: "api-method put",
+        },
       ],
     },
     {
       type: "category",
-      label: "UNTAGGED",
+      label: "Health Check",
       items: [
         {
           type: "doc",
