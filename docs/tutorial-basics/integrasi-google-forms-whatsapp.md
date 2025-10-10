@@ -44,7 +44,9 @@ Setelah device terhubung, Anda perlu mendapatkan API Server Key:
 Jangan share API Server Key Anda ke orang lain. API Key ini digunakan untuk autentikasi dan mengirim pesan dari sistem Anda.
 :::
 
-## Langkah 2: Buat Google Form
+## Langkah 2: Buat Google Form dan Link dengan Google Sheets
+
+### A. Buat Google Form
 
 Sekarang buat Google Form dengan field yang Anda butuhkan. Untuk contoh ini, kita akan membuat form pendaftaran sederhana:
 
@@ -59,11 +61,30 @@ Sekarang buat Google Form dengan field yang Anda butuhkan. Untuk contoh ini, kit
 Pastikan field nomor WhatsApp diberi instruksi untuk mengisi dengan format internasional, contoh: 628123456789 (tanpa tanda + atau -)
 :::
 
+### B. Link Form dengan Google Sheets (SANGAT PENTING!)
+
+⚠️ **WAJIB DILAKUKAN!** Tanpa langkah ini, script tidak akan bisa membaca data form.
+
+1. Di Google Form Anda, klik tab **Responses** (Tanggapan) di bagian atas
+2. Klik icon **Google Sheets** (icon hijau dengan tanda +) di pojok kanan atas bagian Responses
+3. Dialog akan muncul, pilih:
+   - **Create a new spreadsheet** (Buat spreadsheet baru)
+   - Atau **Select existing spreadsheet** (jika sudah ada)
+4. Klik **Create**
+5. Google Sheets akan terbuka otomatis (Anda bisa tutup tab ini)
+6. Kembali ke Google Form Anda
+
+:::danger PENTING
+Jika form tidak di-link dengan Google Sheets, event object akan kosong dan script akan error dengan pesan "e.namedValues tidak ada". **WAJIB link dengan Sheets terlebih dahulu!**
+:::
+
 ## Langkah 3: Buka Google Apps Script
 
-1. Di Google Form Anda, klik titik tiga (⋮) di pojok kanan atas
-2. Pilih **Script editor**
+1. Di Google Spreadsheet Anda, klik menu extensions di menubar
+2. Pilih **Apps Script**
 3. Anda akan diarahkan ke Google Apps Script editor
+
+![Google Apps Script](../../static/panduan/integrasi-google-forms/app-script.png)
 
 ## Langkah 4: Tambahkan Script untuk Kirim Notifikasi WhatsApp
 
@@ -78,8 +99,21 @@ const API_BASE_URL = 'https://api.chatbotnesia.id';
 
 function onFormSubmit(e) {
   try {
+    // Validasi event object
+    if (!e) {
+      Logger.log('Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.');
+      return;
+    }
+    
     // Ambil response dari form
+    // Pastikan form sudah di-link dengan Google Sheets!
     const responses = e.namedValues;
+    
+    if (!responses) {
+      Logger.log('Error: Form belum di-link dengan Google Sheets!');
+      Logger.log('Buka Google Form > Tab Responses > Klik icon Google Sheets.');
+      return;
+    }
     
     // Ambil data dari form (sesuaikan dengan nama field di form Anda)
     const namaLengkap = responses['Nama Lengkap'][0];
@@ -182,8 +216,21 @@ const API_BASE_URL = 'https://api.chatbotnesia.id';
 
 function onFormSubmit(e) {
   try {
+    // Validasi event object
+    if (!e) {
+      Logger.log('Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.');
+      return;
+    }
+    
     // Ambil response dari form
+    // Pastikan form sudah di-link dengan Google Sheets!
     const responses = e.namedValues;
+    
+    if (!responses) {
+      Logger.log('Error: Form belum di-link dengan Google Sheets!');
+      Logger.log('Buka Google Form > Tab Responses > Klik icon Google Sheets.');
+      return;
+    }
     
     // Ambil data dari form
     const namaLengkap = responses['Nama Lengkap'][0];
@@ -275,36 +322,74 @@ function sendWhatsAppAttachment(phoneNumber, message, attachmentUrl, scheduledAt
 }
 ```
 
-## Langkah 5: Setup Trigger
+## Langkah 5: Setup Trigger (SANGAT PENTING!)
 
-Setelah menambahkan script, Anda perlu membuat trigger agar script berjalan otomatis saat form di-submit:
+⚠️ **INI LANGKAH PALING KRUSIAL!** Tanpa trigger yang benar, script tidak akan jalan.
 
-1. Di Apps Script editor, klik icon **jam/trigger** (⏰) di sidebar kiri
-2. Klik **+ Add Trigger** di pojok kanan bawah
-3. Atur trigger dengan konfigurasi berikut:
-   - **Choose which function to run:** `onFormSubmit`
-   - **Choose which deployment should run:** `Head`
-   - **Select event source:** `From form`
-   - **Select event type:** `On form submit`
-4. Klik **Save**
-5. Anda mungkin akan diminta untuk memberikan izin. Klik **Review permissions** dan ikuti langkah-langkahnya
+### A. Hapus Trigger Lama (Jika Ada)
 
+Jika Anda sudah pernah membuat trigger sebelumnya:
+
+1. Di Apps Script editor, klik icon **Triggers** (⏰) di sidebar kiri
+2. Jika ada trigger lama, klik **titik tiga (⋮)** → **Delete trigger**
+3. Konfirmasi penghapusan
+
+### B. Buat Trigger Baru yang Benar
+
+Sekarang buat trigger baru dengan konfigurasi yang TEPAT:
+
+1. Di Apps Script editor, klik icon **Triggers** (⏰) di sidebar kiri
+2. Klik tombol **+ Add Trigger** di pojok kanan bawah
+3. **PASTIKAN** konfigurasi trigger seperti ini:
+   
 ![Setup Trigger](../../static/panduan/integrasi-google-forms/trigger-setup.png)
+
+4. Klik **Save**
+5. Anda akan diminta **Review permissions**:
+   - Klik **Review permissions**
+   - Pilih akun Google Anda
+   - Klik **Advanced** (jika muncul warning)
+   - Klik **Go to [Nama Project] (unsafe)**
+   - Klik **Allow**
 
 ## Langkah 6: Testing
 
-Sekarang saatnya mencoba integrasi Anda:
+⚠️ **CARA TESTING YANG BENAR:**
 
-1. Buka Google Form Anda
-2. Isi form dengan data test (gunakan nomor WhatsApp Anda sendiri)
-3. Submit form
-4. Tunggu beberapa detik, Anda akan menerima notifikasi WhatsApp
+### ❌ JANGAN Lakukan Ini:
+- ❌ Klik tombol **"Run"** di Apps Script editor
+- ❌ Pilih fungsi dan klik "Execute"
+- ❌ Testing di Apps Script editor
 
-:::tip Cara Debugging
-Jika pesan tidak terkirim, cek log di Apps Script:
-1. Buka Apps Script editor
-2. Klik **Executions** (ikon ⚙️) di sidebar kiri
-3. Lihat log untuk melihat error yang terjadi
+**Mengapa?** Karena parameter `e` (event object) hanya ada saat form di-submit, bukan saat run manual!
+
+### ✅ LAKUKAN Ini:
+
+1. **Buka Google Form Anda** (bukan Apps Script!)
+   - Salin link preview form atau buka form dari dashboard
+   
+2. **Isi form dengan data test**
+   - Gunakan nomor WhatsApp Anda sendiri untuk testing
+   - Format nomor: 08123456789 atau 628123456789
+   
+3. **Klik Submit**
+   - Submit form seperti user biasa
+   
+4. **Tunggu 3-5 detik**
+   - Cek WhatsApp Anda
+   - Seharusnya menerima pesan otomatis
+
+5. **Cek Execution Log**
+   - Buka Apps Script editor
+   - Klik icon **Executions** (⚙️) di sidebar kiri
+   - Lihat execution terakhir:
+     - ✅ Status: **Completed** = Berhasil
+     - ❌ Status: **Failed** = Ada error, klik untuk lihat detail
+
+:::tip Cara Melihat Log Detail
+1. Di halaman **Executions**, klik execution yang ingin dilihat
+2. Akan muncul detail log dengan semua `Logger.log()` yang Anda tulis
+3. Gunakan ini untuk debugging jika ada masalah
 :::
 
 ## Langkah 7: Monitoring Log API di Portal ChatbotNesia
