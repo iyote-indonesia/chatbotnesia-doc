@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkchatbotnesia_doc=self.webpackChunkchatbotnesia_doc||[]).push([[599],{20465:t=>{t.exports=JSON.parse('{"tags":[{"label":"test","permalink":"/chatbotnesia-doc/docs/tags/test","count":6}]}')}}]);
