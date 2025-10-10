@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Cara membuat campaign di whatsapp 
+# Cara membuat campaign / broadcast di whatsapp 
 
 
 ## Pastikan whatsapp sudah connected
@@ -19,7 +19,7 @@ Masuk ke menu broadcast > Template message, kemudian klik "Create Template"
 
 ![Isi nama template dan platform](../../static/panduan/campaign/template-platform.png)
 
-isi nama template dan pilih jenis platform (Whatsapp, Whatsapp API, Instagram, Email)
+isi nama template dan pilih jenis platform
 
 ![Isi konten](../../static/panduan/campaign/template-content.png)
 
@@ -45,5 +45,7 @@ Device Account: Nomor sender yang akan di gunakan
 Recipients: file csv yang minimal berisi one column "phone" | Setelah di isi konten |
 
 ### Pantau hasil
+
+Klik detail pada campaign yang ingin di pantau, kemudian masuk ke tab statistic
 
 ![Statistic](../../static/panduan/campaign/campaign-statistic.png)
