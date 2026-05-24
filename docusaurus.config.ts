@@ -10,7 +10,7 @@ const config: Config = {
   title: "Panduan ChatbotNesia",
   tagline: "Buat bisnis kamu lebih sat set sat set dengan chatbotnesia",
   url: "https://iyote-indonesia.github.io",
-  baseUrl: "/chatbotnesia-doc",
+  baseUrl: "/",
   // url: "http://localhost:3000",
   // baseUrl: "/",
   onBrokenLinks: "throw",
