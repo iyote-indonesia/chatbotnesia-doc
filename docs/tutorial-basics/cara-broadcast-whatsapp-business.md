@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Cara broadcast WhatsApp Business
+# Cara membuat campaign / broadcast di whatsapp business
 
 Tutorial ini menjelaskan cara membuat template dan menjalankan broadcast menggunakan WhatsApp Business API melalui ChatbotNesia.
 

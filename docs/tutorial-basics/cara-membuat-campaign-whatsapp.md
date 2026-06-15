@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Cara membuat campaign / broadcast di whatsapp 
+# Cara membuat campaign / broadcast di WhatsApp
 
 
 ## Pastikan whatsapp sudah connected
