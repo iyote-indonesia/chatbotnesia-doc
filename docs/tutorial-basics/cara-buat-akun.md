@@ -4,4 +4,4 @@ tags:
   - test
 ---
 
-# Cara register akun
+# Cara Daftar Akun

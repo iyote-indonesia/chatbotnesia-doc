@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Cara membuat campaign / broadcast di whatsapp business
+# Cara Membuat Campaign/Broadcast WhatsApp Business
 
 Tutorial ini menjelaskan cara membuat template dan menjalankan broadcast menggunakan WhatsApp Business API melalui ChatbotNesia.
 
@@ -97,3 +97,19 @@ Drop atau pilih file yang sudah diedit sebelumnya pada bagian **Drop CSV/XLS/XLS
 Broadcast akan otomatis terkirim sesuai tanggal dan waktu yang telah diatur sebelumnya dan berstatus **Scheduled**.
 
 ![Status Scheduled](../../static/panduan/broadcast-whatsapp-business/step-15.jpeg)
+
+## Video tutorial
+
+Tonton juga panduan video berikut untuk mempelajari langkah broadcast WhatsApp Business secara visual:
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/yjvD0dK5LXI"
+  title="Tutorial Broadcast WhatsApp Business"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen
+></iframe>
+
+Atau buka langsung di YouTube: [Tutorial Broadcast WhatsApp Business](https://youtu.be/yjvD0dK5LXI)

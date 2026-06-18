@@ -2,13 +2,14 @@
 sidebar_position: 4
 ---
 
-# Integrasi Google Forms dengan Notifikasi WhatsApp
+# Integrasi Google Forms Dengan Notifikasi WhatsApp
 
 Tutorial ini akan membantu Anda membuat integrasi antara Google Forms dengan notifikasi WhatsApp menggunakan ChatbotNesia API. Ketika seseorang submit Google Form, mereka akan otomatis menerima notifikasi WhatsApp.
 
 ## Prasyarat
 
 Sebelum memulai, pastikan Anda sudah:
+
 1. Memiliki akun ChatbotNesia
 2. Memiliki akses ke Google Forms dan Google Apps Script
 
@@ -94,46 +95,48 @@ Hapus kode default dan ganti dengan kode berikut. **Jangan lupa ganti `YOUR_API_
 
 ```javascript
 // Ganti dengan API Key Anda dari ChatbotNesia
-const API_KEY = 'YOUR_API_KEY_HERE';
-const API_BASE_URL = 'https://api.chatbotnesia.id';
+const API_KEY = "YOUR_API_KEY_HERE";
+const API_BASE_URL = "https://api.chatbotnesia.id";
 
 function onFormSubmit(e) {
   try {
     // Validasi event object
     if (!e) {
-      Logger.log('Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.');
+      Logger.log(
+        "Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.",
+      );
       return;
     }
-    
+
     // Ambil response dari form
     // Pastikan form sudah di-link dengan Google Sheets!
     const responses = e.namedValues;
-    
+
     if (!responses) {
-      Logger.log('Error: Form belum di-link dengan Google Sheets!');
-      Logger.log('Buka Google Form > Tab Responses > Klik icon Google Sheets.');
+      Logger.log("Error: Form belum di-link dengan Google Sheets!");
+      Logger.log("Buka Google Form > Tab Responses > Klik icon Google Sheets.");
       return;
     }
-    
+
     // Ambil data dari form (sesuaikan dengan nama field di form Anda)
-    const namaLengkap = responses['Nama Lengkap'][0];
-    const nomorWhatsApp = responses['Nomor WhatsApp'][0];
-    const email = responses['Email'][0];
-    const pesan = responses['Pesan/Keperluan'][0];
-    
+    const namaLengkap = responses["Nama Lengkap"][0];
+    const nomorWhatsApp = responses["Nomor WhatsApp"][0];
+    const email = responses["Email"][0];
+    const pesan = responses["Pesan/Keperluan"][0];
+
     // Format nomor WhatsApp (pastikan format: 628xxx)
-    let phoneNumber = nomorWhatsApp.replace(/\D/g, ''); // Hapus karakter non-digit
-    
+    let phoneNumber = nomorWhatsApp.replace(/\D/g, ""); // Hapus karakter non-digit
+
     // Jika dimulai dengan 0, ganti dengan 62
-    if (phoneNumber.startsWith('0')) {
-      phoneNumber = '62' + phoneNumber.substring(1);
+    if (phoneNumber.startsWith("0")) {
+      phoneNumber = "62" + phoneNumber.substring(1);
     }
-    
+
     // Jika tidak dimulai dengan 62, tambahkan 62
-    if (!phoneNumber.startsWith('62')) {
-      phoneNumber = '62' + phoneNumber;
+    if (!phoneNumber.startsWith("62")) {
+      phoneNumber = "62" + phoneNumber;
     }
-    
+
     // Buat pesan yang akan dikirim
     const message = `Halo *${namaLengkap}*! 👋
 
@@ -150,56 +153,57 @@ Berikut adalah data yang Anda kirimkan:
 Kami akan segera menghubungi Anda. 
 
 Terima kasih! 🙏`;
-    
+
     // Kirim pesan WhatsApp
     const result = sendWhatsAppMessage(phoneNumber, message);
-    
+
     // Log hasil
-    Logger.log('WhatsApp sent successfully: ' + JSON.stringify(result));
-    
+    Logger.log("WhatsApp sent successfully: " + JSON.stringify(result));
   } catch (error) {
-    Logger.log('Error: ' + error.toString());
+    Logger.log("Error: " + error.toString());
   }
 }
 
 function sendWhatsAppMessage(phoneNumber, message, scheduledAt = null) {
   const url = `${API_BASE_URL}/broadcast/whatsapp/send-message`;
-  
+
   const payload = {
     phone_number: phoneNumber,
-    message: message
+    message: message,
   };
-  
+
   // Tambahkan scheduled_at jika ada
   if (scheduledAt) {
     payload.scheduled_at = scheduledAt;
   }
-  
+
   const options = {
-    method: 'post',
-    contentType: 'application/json',
+    method: "post",
+    contentType: "application/json",
     headers: {
-      'Authorization': 'Bearer ' + API_KEY
+      Authorization: "Bearer " + API_KEY,
     },
     payload: JSON.stringify(payload),
-    muteHttpExceptions: true
+    muteHttpExceptions: true,
   };
-  
+
   try {
     const response = UrlFetchApp.fetch(url, options);
     const responseCode = response.getResponseCode();
     const responseBody = JSON.parse(response.getContentText());
-    
+
     if (responseCode === 200) {
-      Logger.log('Message sent successfully. Message ID: ' + responseBody.message_id);
+      Logger.log(
+        "Message sent successfully. Message ID: " + responseBody.message_id,
+      );
       return responseBody;
     } else {
-      Logger.log('Failed to send message. Status: ' + responseCode);
-      Logger.log('Response: ' + JSON.stringify(responseBody));
-      throw new Error('Failed to send WhatsApp message');
+      Logger.log("Failed to send message. Status: " + responseCode);
+      Logger.log("Response: " + JSON.stringify(responseBody));
+      throw new Error("Failed to send WhatsApp message");
     }
   } catch (error) {
-    Logger.log('Error sending WhatsApp: ' + error.toString());
+    Logger.log("Error sending WhatsApp: " + error.toString());
     throw error;
   }
 }
@@ -211,35 +215,37 @@ Jika Anda ingin mengirim pesan dengan attachment seperti gambar, PDF, atau file 
 
 ```javascript
 // Ganti dengan API Key Anda dari ChatbotNesia
-const API_KEY = 'YOUR_API_KEY_HERE';
-const API_BASE_URL = 'https://api.chatbotnesia.id';
+const API_KEY = "YOUR_API_KEY_HERE";
+const API_BASE_URL = "https://api.chatbotnesia.id";
 
 function onFormSubmit(e) {
   try {
     // Validasi event object
     if (!e) {
-      Logger.log('Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.');
+      Logger.log(
+        "Error: Event object tidak valid. Pastikan trigger sudah diatur dengan benar.",
+      );
       return;
     }
-    
+
     // Ambil response dari form
     // Pastikan form sudah di-link dengan Google Sheets!
     const responses = e.namedValues;
-    
+
     if (!responses) {
-      Logger.log('Error: Form belum di-link dengan Google Sheets!');
-      Logger.log('Buka Google Form > Tab Responses > Klik icon Google Sheets.');
+      Logger.log("Error: Form belum di-link dengan Google Sheets!");
+      Logger.log("Buka Google Form > Tab Responses > Klik icon Google Sheets.");
       return;
     }
-    
+
     // Ambil data dari form
-    const namaLengkap = responses['Nama Lengkap'][0];
-    const nomorWhatsApp = responses['Nomor WhatsApp'][0];
-    const email = responses['Email'][0];
-    
+    const namaLengkap = responses["Nama Lengkap"][0];
+    const nomorWhatsApp = responses["Nomor WhatsApp"][0];
+    const email = responses["Email"][0];
+
     // Format nomor WhatsApp
     let phoneNumber = formatPhoneNumber(nomorWhatsApp);
-    
+
     // Buat pesan
     const message = `Halo *${namaLengkap}*! 👋
 
@@ -247,76 +253,83 @@ Terima kasih telah mendaftar. Berikut adalah panduan lengkap kami (terlampir).
 
 Salam,
 Tim ChatbotNesia`;
-    
+
     // URL gambar atau file yang akan dikirim (harus publicly accessible)
-    const attachmentUrl = 'https://yourdomain.com/path/to/your/file.pdf';
-    
+    const attachmentUrl = "https://yourdomain.com/path/to/your/file.pdf";
+
     // Kirim pesan dengan attachment
     const result = sendWhatsAppAttachment(phoneNumber, message, attachmentUrl);
-    
-    Logger.log('WhatsApp sent successfully: ' + JSON.stringify(result));
-    
+
+    Logger.log("WhatsApp sent successfully: " + JSON.stringify(result));
   } catch (error) {
-    Logger.log('Error: ' + error.toString());
+    Logger.log("Error: " + error.toString());
   }
 }
 
 function formatPhoneNumber(phoneNumber) {
   // Hapus karakter non-digit
-  let formatted = phoneNumber.replace(/\D/g, '');
-  
+  let formatted = phoneNumber.replace(/\D/g, "");
+
   // Jika dimulai dengan 0, ganti dengan 62
-  if (formatted.startsWith('0')) {
-    formatted = '62' + formatted.substring(1);
+  if (formatted.startsWith("0")) {
+    formatted = "62" + formatted.substring(1);
   }
-  
+
   // Jika tidak dimulai dengan 62, tambahkan 62
-  if (!formatted.startsWith('62')) {
-    formatted = '62' + formatted;
+  if (!formatted.startsWith("62")) {
+    formatted = "62" + formatted;
   }
-  
+
   return formatted;
 }
 
-function sendWhatsAppAttachment(phoneNumber, message, attachmentUrl, scheduledAt = null) {
+function sendWhatsAppAttachment(
+  phoneNumber,
+  message,
+  attachmentUrl,
+  scheduledAt = null,
+) {
   const url = `${API_BASE_URL}/broadcast/whatsapp/send-attachment`;
-  
+
   const payload = {
     phone_number: phoneNumber,
     message: message,
-    attachment: attachmentUrl // Bisa berupa URL public atau base64
+    attachment: attachmentUrl, // Bisa berupa URL public atau base64
   };
-  
+
   // Tambahkan scheduled_at jika ada
   if (scheduledAt) {
     payload.scheduled_at = scheduledAt;
   }
-  
+
   const options = {
-    method: 'post',
-    contentType: 'application/json',
+    method: "post",
+    contentType: "application/json",
     headers: {
-      'Authorization': 'Bearer ' + API_KEY
+      Authorization: "Bearer " + API_KEY,
     },
     payload: JSON.stringify(payload),
-    muteHttpExceptions: true
+    muteHttpExceptions: true,
   };
-  
+
   try {
     const response = UrlFetchApp.fetch(url, options);
     const responseCode = response.getResponseCode();
     const responseBody = JSON.parse(response.getContentText());
-    
+
     if (responseCode === 200) {
-      Logger.log('Message with attachment sent successfully. Message ID: ' + responseBody.message_id);
+      Logger.log(
+        "Message with attachment sent successfully. Message ID: " +
+          responseBody.message_id,
+      );
       return responseBody;
     } else {
-      Logger.log('Failed to send message. Status: ' + responseCode);
-      Logger.log('Response: ' + JSON.stringify(responseBody));
-      throw new Error('Failed to send WhatsApp message with attachment');
+      Logger.log("Failed to send message. Status: " + responseCode);
+      Logger.log("Response: " + JSON.stringify(responseBody));
+      throw new Error("Failed to send WhatsApp message with attachment");
     }
   } catch (error) {
-    Logger.log('Error sending WhatsApp: ' + error.toString());
+    Logger.log("Error sending WhatsApp: " + error.toString());
     throw error;
   }
 }
@@ -341,7 +354,7 @@ Sekarang buat trigger baru dengan konfigurasi yang TEPAT:
 1. Di Apps Script editor, klik icon **Triggers** (⏰) di sidebar kiri
 2. Klik tombol **+ Add Trigger** di pojok kanan bawah
 3. **PASTIKAN** konfigurasi trigger seperti ini:
-   
+
 ![Setup Trigger](../../static/panduan/integrasi-google-forms/trigger-setup.png)
 
 4. Klik **Save**
@@ -357,6 +370,7 @@ Sekarang buat trigger baru dengan konfigurasi yang TEPAT:
 ⚠️ **CARA TESTING YANG BENAR:**
 
 ### ❌ JANGAN Lakukan Ini:
+
 - ❌ Klik tombol **"Run"** di Apps Script editor
 - ❌ Pilih fungsi dan klik "Execute"
 - ❌ Testing di Apps Script editor
@@ -367,14 +381,11 @@ Sekarang buat trigger baru dengan konfigurasi yang TEPAT:
 
 1. **Buka Google Form Anda** (bukan Apps Script!)
    - Salin link preview form atau buka form dari dashboard
-   
 2. **Isi form dengan data test**
    - Gunakan nomor WhatsApp Anda sendiri untuk testing
    - Format nomor: 08123456789 atau 628123456789
-   
 3. **Klik Submit**
    - Submit form seperti user biasa
-   
 4. **Tunggu 3-5 detik**
    - Cek WhatsApp Anda
    - Seharusnya menerima pesan otomatis
@@ -387,10 +398,11 @@ Sekarang buat trigger baru dengan konfigurasi yang TEPAT:
      - ❌ Status: **Failed** = Ada error, klik untuk lihat detail
 
 :::tip Cara Melihat Log Detail
+
 1. Di halaman **Executions**, klik execution yang ingin dilihat
 2. Akan muncul detail log dengan semua `Logger.log()` yang Anda tulis
 3. Gunakan ini untuk debugging jika ada masalah
-:::
+   :::
 
 ## Langkah 7: Monitoring Log API di Portal ChatbotNesia
 
@@ -422,16 +434,18 @@ Dari halaman Log API, Anda dapat melihat:
 ### Filter dan Pencarian
 
 Anda dapat memfilter log berdasarkan:
+
 - **Device**: Pilih device WhatsApp tertentu
 - **Status**: Filter berdasarkan status (All Status, Delivered, Failed, Pending)
 - **Tanggal**: Filter berdasarkan rentang tanggal (From - To)
 
 :::tip Monitoring
 Cek log API secara berkala untuk memastikan semua pesan terkirim dengan baik. Jika ada pesan dengan status "Failed", periksa:
+
 - Apakah nomor WhatsApp penerima valid?
 - Apakah nomor tersebut terdaftar di WhatsApp?
 - Apakah device pengirim masih aktif?
-:::
+  :::
 
 ## API Reference
 
@@ -446,6 +460,7 @@ Cek log API secara berkala untuk memastikan semua pesan terkirim dengan baik. Ji
 ## Kesimpulan
 
 Dengan mengintegrasikan Google Forms dan ChatbotNesia API, Anda dapat:
+
 - ✅ Otomatis mengirim konfirmasi ke responden
 - ✅ Meningkatkan engagement dengan customer
 - ✅ Memberikan pengalaman yang lebih baik
@@ -456,6 +471,6 @@ Jika ada pertanyaan atau butuh bantuan, silakan hubungi tim support ChatbotNesia
 ---
 
 **Sumber Referensi:**
+
 - [ChatbotNesia API Documentation](https://iyote-indonesia.github.io/chatbotnesia-doc/)
 - [Google Apps Script Documentation](https://developers.google.com/apps-script)
-

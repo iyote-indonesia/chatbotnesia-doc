@@ -6,7 +6,7 @@ tags:
   - indonesia
 ---
 
-# Apa itu ChatbotNesia.id ?
+# Apa Itu ChatbotNesia.id ?
 
 **ChatbotNesia.id** adalah platform CRM dan AI Agent terdepan yang dirancang khusus untuk customer service dan broadcasting marketing di Indonesia.
 
@@ -32,5 +32,4 @@ ChatbotNesia.id hadir sebagai solusi komprehensif untuk transformasi digital bis
 
 ---
 
-*Mulai transformasi digital bisnis Anda dengan ChatbotNesia.id - Chatbot AI untuk Indonesia.*
-
+_Mulai transformasi digital bisnis Anda dengan ChatbotNesia.id - Chatbot AI untuk Indonesia._

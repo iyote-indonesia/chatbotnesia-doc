@@ -2,8 +2,7 @@
 sidebar_position: 1
 ---
 
-# Cara membuat campaign / broadcast di WhatsApp
-
+# Cara Membuat Campaign/Broadcast WhatsApp
 
 ## Pastikan whatsapp sudah connected
 
@@ -34,9 +33,10 @@ Masuk ke menu broadcast > Tab Broadcast Campaign
 Klik tombol "Create Campaign"
 
 | ![Create Campaign Form](../../static/panduan/campaign/campaign-new.png) | ![Campaign Settings](../../static/panduan/campaign/campaign-content-after.png) |
-|:---:|:---:|
-| 
-Isi form campaign 
+| :---------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+
+|
+Isi form campaign
 Campaign name: bisa di isi dengan nama broadcast, misal "Blast Promo 12.12 part 1"
 Select template message: pilih template message / narasi yang ingin di blast
 Schedule Date & Time: jadwal mulai blasting oleh sistem
